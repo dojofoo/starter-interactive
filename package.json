@@ -1,0 +1,28 @@
+{
+  "name": "@dojofoo/starter-interactive",
+  "version": "0.0.1",
+  "description": "Learn to prepare Python, uv, and Dojofoo through an interactive course.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dojofoo/starter-interactive.git"
+  },
+  "homepage": "https://github.com/dojofoo/starter-interactive#readme",
+  "bugs": {
+    "url": "https://github.com/dojofoo/starter-interactive/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lessons",
+    "examples",
+    "DOJO.md",
+    "README.md",
+    "dojo.json"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "python-uv-dojofoo",
+  "title": "Python, uv, and Dojofoo",
+  "steps": [
+    {
+      "id": "tool-boundaries",
+      "type": "present",
+      "title": "Give each tool one job",
+      "content": "Dojofoo provides the course and learning interface. uv manages the Python interpreter, virtual environment, dependencies, and commands inside the Python project. Keeping those responsibilities separate makes the workspace reproducible without making an interactive course depend on Python merely to display a lesson.\n\nYou need Node.js to run the dojofoo CLI. For Python work, this lesson uses uv to acquire Python rather than relying on whichever interpreter happens to be installed globally."
+    },
+    {
+      "id": "uv-check",
+      "type": "question",
+      "title": "Check the responsibility boundary",
+      "prompt": "Which tool in this setup installs and manages the Python version and Python dependencies?",
+      "answers": ["uv"],
+      "explanation": "uv owns the Python environment. Dojofoo owns the course, local learning state, and teaching UI."
+    },
+    {
+      "id": "install-uv",
+      "type": "present",
+      "title": "Install uv",
+      "content": "If you already use mise, install uv with:\n\nmise use -g uv@latest\n\nOtherwise, use uv's official installation instructions for your operating system at https://docs.astral.sh/uv/getting-started/installation/. Then confirm the command is available:\n\nuv --version\n\nUsing mise is convenient, but dojofoo does not require it for this lesson."
+    },
+    {
+      "id": "install-python",
+      "type": "present",
+      "title": "Let uv install Python",
+      "content": "Install a current Python release without modifying the operating system's Python:\n\nuv python install 3.13\n\nConfirm what uv can see:\n\nuv python list\n\nA project can later pin the interpreter with `uv python pin 3.13`, producing a portable `.python-version` file."
+    },
+    {
+      "id": "python-command-check",
+      "type": "question",
+      "title": "Retrieve the command",
+      "prompt": "Which command asks uv to install Python 3.13?",
+      "answers": ["uv python install 3.13", "uv python install 3.13.0"],
+      "explanation": "`uv python install 3.13` asks uv to acquire a compatible Python 3.13 release. It avoids coupling the project to the system interpreter."
+    },
+    {
+      "id": "create-project",
+      "type": "present",
+      "title": "Create the Python workspace",
+      "content": "From an empty project directory, initialize and pin the environment:\n\nuv init\nuv python pin 3.13\nuv add --dev pytest\n\nRun Python and tests through uv so the project environment is selected consistently:\n\nuv run python --version\nuv run pytest\n\nThe optional `examples/hello.py` shipped with this dojo is a tiny destination you can copy into your own project and run with `uv run python hello.py`."
+    },
+    {
+      "id": "initialize-dojofoo",
+      "type": "present",
+      "title": "Initialize the dojo",
+      "content": "In the same project directory, initialize dojofoo for the coding harness you use. For example:\n\nnpx dojofoo install --codex\n\nReplace `--codex` with another supported harness flag when appropriate. Then install a course and open the local UI:\n\nnpx dojofoo add dojofoo/starter-interactive\nnpx dojofoo ui --open\n\nThe Python environment and dojofoo learning state now coexist in the project while remaining independently replaceable."
+    },
+    {
+      "id": "run-check",
+      "type": "question",
+      "title": "Use the managed environment",
+      "prompt": "Which command runs pytest through the environment managed by uv?",
+      "answers": ["uv run pytest", "uv run pytest ."],
+      "explanation": "`uv run pytest` resolves the project environment before launching pytest, so the command does not depend on an activated shell or a global installation."
+    },
+    {
+      "id": "finish",
+      "type": "present",
+      "title": "You now have a reproducible baseline",
+      "content": "The resulting workspace has three clear layers: uv manages Python, Git carries project configuration and learner-owned work, and dojofoo keeps local course/session state while presenting the lesson.\n\nUse this repository as the baseline for authoring another interactive dojo: change the metadata in `dojo.json`, replace the lesson definition, and keep the package allowlist limited to material the learner actually needs."
+    }
+  ]
+}
