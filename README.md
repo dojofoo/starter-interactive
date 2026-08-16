@@ -54,5 +54,5 @@ and an explanation shown after the learner submits an answer. Keep accepted
 answers narrow enough to make deterministic feedback meaningful.
 
 This template complements
-[`dojofoo/starter`](https://github.com/dojofoo/starter), which demonstrates the
+[`dojofoo/starter-kata`](https://github.com/dojofoo/starter-kata), which demonstrates the
 test-backed `katas` mode.
