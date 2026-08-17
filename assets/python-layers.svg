@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Python environment layers</title>
+  <desc id="description">Mise selects tools, uv manages Python, and dojofoo presents learning.</desc>
+  <style>
+    text { font: 16px system-ui, sans-serif; fill: #e8e8e8 }
+    .box { fill: #181818; stroke: #666; stroke-width: 2 }
+    .arrow { stroke: #ef8354; stroke-width: 3; marker-end: url(#arrow) }
+  </style>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#ef8354"/></marker></defs>
+  <rect class="box" x="20" y="50" width="180" height="80"/><text x="110" y="96" text-anchor="middle">mise · tools</text>
+  <path class="arrow" d="M205 90H265"/>
+  <rect class="box" x="270" y="50" width="180" height="80"/><text x="360" y="96" text-anchor="middle">uv · Python</text>
+  <path class="arrow" d="M455 90H515"/>
+  <rect class="box" x="520" y="50" width="180" height="80"/><text x="610" y="96" text-anchor="middle">dojofoo · learning</text>
+</svg>

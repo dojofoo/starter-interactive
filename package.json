@@ -17,10 +17,13 @@
   },
   "files": [
     "lessons",
+    "content",
+    "assets",
+    "components",
     "examples",
     "DOJO.md",
     "README.md",
-    "dojo.json"
+    "dojo.yaml"
   ],
   "scripts": {
     "test": "node --test test/*.test.js"

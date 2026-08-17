@@ -1,0 +1,18 @@
+## Create the Python workspace
+
+From an empty project directory, initialize and pin the environment:
+
+```sh
+uv init
+uv python pin 3.13
+uv add --dev pytest
+```
+
+Run commands through the project environment:
+
+```sh
+uv run python --version
+uv run pytest
+```
+
+<Artifact src="../examples/hello.py" title="Optional Python example" />

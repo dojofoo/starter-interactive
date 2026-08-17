@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://dojo.foo/schema/v1/dojo.json
+
+# Interactive courses are authored content: opening this lesson requires only
+# dojofoo's web runtime, not the Python environment the lesson teaches.
+mode: interactive
+name: "@dojofoo/starter-interactive"
+version: 0.0.1
+description: >-
+  Prepare a Python workspace with uv and install Dojofoo through a short
+  interactive lesson.
+author: Tom Siwik
+language: Python
+framework: Dojofoo
+tags:
+  - Course authoring
+  - Starter
+  - Tooling
+homepage: https://github.com/dojofoo/starter-interactive
+repository: https://github.com/dojofoo/starter-interactive
+
+# The lesson structure stays deterministic while each authored surface is MDX.
+lessons: lessons/python-uv-dojofoo.json

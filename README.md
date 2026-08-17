@@ -30,28 +30,29 @@ restart.
 ## Use it as an authoring template
 
 1. Copy this repository or use it as a GitHub template.
-2. Rename the npm package and the manifest's `name`.
+2. Rename the package metadata and the documented `dojo.yaml` manifest.
 3. Replace the course description and `DOJO.md` teaching rules.
-4. Replace `lessons/python-uv-dojofoo.json` with one compact lesson.
+4. Replace the MDX files under `content/` and the lesson structure under
+   `lessons/`.
 5. Update the `lessons` path in `dojo.json`.
 6. Run `npm test` and `npm pack --dry-run` before publishing.
 
 The minimal contract is:
 
-```json
-{
-  "mode": "interactive",
-  "name": "@your-scope/your-course",
-  "version": "0.0.1",
-  "description": "What the learner will accomplish.",
-  "lessons": "lessons/introduction.json"
-}
+```yaml
+# yaml-language-server: $schema=https://dojo.foo/schema/v1/dojo.json
+mode: interactive
+name: "@your-scope/your-course"
+version: 0.0.1
+description: What the learner will accomplish.
+lessons: lessons/introduction.json
 ```
 
-The current POC supports `present` and `question` steps. Presentation steps
-contain authored content. Question steps contain a prompt, accepted answers,
-and an explanation shown after the learner submits an answer. Keep accepted
-answers narrow enough to make deterministic feedback meaningful.
+The current format supports `present` and `question` steps. Their content,
+prompts, and explanations point to MDX files. The shared renderer supports
+Markdown, code, Mermaid, LaTeX, SVG/images, artifacts, videos, and sandboxed
+interactive HTML components. Keep accepted answers narrow enough to make
+deterministic feedback meaningful.
 
 This template complements
 [`dojofoo/starter-kata`](https://github.com/dojofoo/starter-kata), which demonstrates the

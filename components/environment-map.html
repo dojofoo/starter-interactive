@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Environment ownership explorer</title>
+<style>
+  body { margin: 0; padding: 24px; color: #181818; background: #fff; font: 15px system-ui, sans-serif }
+  button { display: block; width: 100%; margin: 8px 0; padding: 12px; border: 1px solid #888; background: #f5f5f5; text-align: left; cursor: pointer }
+  output { display: block; min-height: 48px; margin-top: 18px; padding: 14px; border-left: 3px solid #ef8354 }
+</style>
+<h1>Who owns this?</h1>
+<p>Select a concern to reveal the responsible layer.</p>
+<button data-answer="mise">Node, Python, Go, Rust, or Java version</button>
+<button data-answer="uv">Python dependencies and virtual environment</button>
+<button data-answer="dojofoo">Course progress and learning sessions</button>
+<output>Select one of the concerns above.</output>
+<script>
+  const output = document.querySelector('output');
+  document.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => {
+    output.textContent = button.dataset.answer;
+  }));
+</script>
+</html>
